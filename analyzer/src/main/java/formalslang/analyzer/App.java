@@ -10,9 +10,12 @@ import java.io.File;
 public class App {
 
     public static void main(String[] args) {
-        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            // Código para eliminar las imágenes generadas
-            deleteGeneratedGraphs();
+        
+        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+            @Override
+            public void run() {
+                deleteGeneratedGraphs();
+            }
         }));
 
         new AnalyzerMainGUI().setVisible(true);
@@ -36,7 +39,7 @@ public class App {
     private static class ImageFileFilter implements java.io.FileFilter {
         @Override
         public boolean accept(File pathname) {
-            return pathname.isFile() && (pathname.getName().endsWith(".png") || pathname.getName().endsWith(".dot"));  // Cambia la extensión si es diferente
+            return pathname.isFile() && (pathname.getName().endsWith(".png") || pathname.getName().endsWith(".dot")); 
         }
     }
 }
