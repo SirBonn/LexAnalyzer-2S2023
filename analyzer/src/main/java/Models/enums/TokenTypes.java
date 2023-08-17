@@ -37,5 +37,10 @@ public enum TokenTypes {
     DOT_TKN,
     DBLDOT_TKN,
     COMMA_TKN,
+    OPERATOR_TKN,
+    COMPARATOR_TKN,
+    AGRUPATION_TKN,
+    RSRVDWRD_TKN,
+    SINGN_TKN,
     UNREC_TKN
 }

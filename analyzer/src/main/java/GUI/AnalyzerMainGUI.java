@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import GUI.InterfaceMagnament.UserInterfaceMagnament;
 import Models.FilesMagnament.FileController;
 import Models.TokenMagnament.TokenBag;
 import Models.TokenMagnament.TokenController;
@@ -23,6 +24,7 @@ public class AnalyzerMainGUI extends javax.swing.JFrame {
     private final TokenController tokenController = new TokenController(new TokenBag());
     private final UserInterfaceMagnament userInterfaceMagnament = new UserInterfaceMagnament();
     private final FileController fileController = new FileController();
+    private GraphicsViewer gc;
 
     public AnalyzerMainGUI() {
         initComponents();
@@ -110,6 +112,11 @@ public class AnalyzerMainGUI extends javax.swing.JFrame {
         });
 
         exportFile.setText("Exortar");
+        exportFile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exportFileActionPerformed(evt);
+            }
+        });
 
         infoJLabel.setText("Line: Col:");
 
@@ -188,14 +195,28 @@ public class AnalyzerMainGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_clearButtonActionPerformed
 
     private void runButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runButtonActionPerformed
-        tokenController.clearTokens();
-        tokenController.initParser(textInsertSection.getText());
-        resultsSection.setText(tokenController.getTokenBag().showTokens());
+        runParser();
     }//GEN-LAST:event_runButtonActionPerformed
 
     private void loadFIleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadFIleActionPerformed
         fileController.readFIle(loadFIle, textInsertSection);
     }//GEN-LAST:event_loadFIleActionPerformed
+
+    private void exportFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportFileActionPerformed
+        if (gc != null) {
+            gc.dispose();
+        }
+        
+        runParser();
+        gc = new GraphicsViewer(userInterfaceMagnament, tokenController.getTokenBag(), this);
+        gc.setVisible(true);
+    }//GEN-LAST:event_exportFileActionPerformed
+
+    private void runParser() {
+        tokenController.clearTokens();
+        tokenController.initParser(textInsertSection.getText());
+        resultsSection.setText(tokenController.getTokenBag().showTokens());
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel analyzerPane;

@@ -71,4 +71,22 @@ public class TokenBag {
 
     }
 
+    public ArrayList<Token> groupTokens(int tokenType) {
+
+        ArrayList<Token> specificTokenTypeGroup = new ArrayList<>();
+
+        for (Token token : tokens) {
+            if (token.getTokenGroup() == tokenType) {
+                specificTokenTypeGroup.add(token);
+            }
+        }
+
+        return specificTokenTypeGroup;
+    }
+
+    public int groupSize(int tokenType) {
+
+        return groupTokens(tokenType).size() + 1;
+
+    }
 }
