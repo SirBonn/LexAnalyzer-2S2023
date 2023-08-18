@@ -1,5 +1,7 @@
 /home/sirbon/Documents/StudentFiles/segundoSemestre2023/Lenguajes/Practicas/Lab/Primera practica/analyzer/src/main/java/Models/TokenMagnament/Token.java
 /home/sirbon/Documents/StudentFiles/segundoSemestre2023/Lenguajes/Practicas/Lab/Primera practica/analyzer/src/main/java/Models/FilesMagnament/FileController.java
+/home/sirbon/Documents/StudentFiles/segundoSemestre2023/Lenguajes/Practicas/Lab/Primera practica/analyzer/src/main/java/GUI/InterfaceMagnament/TokenizerGraph.java
+/home/sirbon/Documents/StudentFiles/segundoSemestre2023/Lenguajes/Practicas/Lab/Primera practica/analyzer/src/main/java/GUI/InterfaceMagnament/UserInterfaceMagnament.java
 /home/sirbon/Documents/StudentFiles/segundoSemestre2023/Lenguajes/Practicas/Lab/Primera practica/analyzer/src/main/java/formalslang/analyzer/App.java
 /home/sirbon/Documents/StudentFiles/segundoSemestre2023/Lenguajes/Practicas/Lab/Primera practica/analyzer/src/main/java/Models/enums/TokenTypes.java
 /home/sirbon/Documents/StudentFiles/segundoSemestre2023/Lenguajes/Practicas/Lab/Primera practica/analyzer/src/main/java/Models/enums/MatrixStates.java
@@ -7,9 +9,11 @@
 /home/sirbon/Documents/StudentFiles/segundoSemestre2023/Lenguajes/Practicas/Lab/Primera practica/analyzer/src/main/java/Models/StatesMagtnament/StateController.java
 /home/sirbon/Documents/StudentFiles/segundoSemestre2023/Lenguajes/Practicas/Lab/Primera practica/analyzer/src/main/java/Models/StatesMagtnament/SymbolController.java
 /home/sirbon/Documents/StudentFiles/segundoSemestre2023/Lenguajes/Practicas/Lab/Primera practica/analyzer/src/main/java/Models/enums/ReservedWordsTokens.java
+/home/sirbon/Documents/StudentFiles/segundoSemestre2023/Lenguajes/Practicas/Lab/Primera practica/analyzer/src/main/java/GUI/InterfaceMagnament/TokenDropper.java
 /home/sirbon/Documents/StudentFiles/segundoSemestre2023/Lenguajes/Practicas/Lab/Primera practica/analyzer/src/main/java/Models/StatesMagtnament/DefinedMatrix.java
 /home/sirbon/Documents/StudentFiles/segundoSemestre2023/Lenguajes/Practicas/Lab/Primera practica/analyzer/src/main/java/Models/enums/ReservedWordsList.java
+/home/sirbon/Documents/StudentFiles/segundoSemestre2023/Lenguajes/Practicas/Lab/Primera practica/analyzer/src/main/java/Models/GraphMagnament/GraphvizController.java
 /home/sirbon/Documents/StudentFiles/segundoSemestre2023/Lenguajes/Practicas/Lab/Primera practica/analyzer/src/main/java/GUI/AnalyzerMainGUI.java
+/home/sirbon/Documents/StudentFiles/segundoSemestre2023/Lenguajes/Practicas/Lab/Primera practica/analyzer/src/main/java/GUI/GraphicsViewer.java
 /home/sirbon/Documents/StudentFiles/segundoSemestre2023/Lenguajes/Practicas/Lab/Primera practica/analyzer/src/main/java/Models/TokenMagnament/TokenController.java
 /home/sirbon/Documents/StudentFiles/segundoSemestre2023/Lenguajes/Practicas/Lab/Primera practica/analyzer/src/main/java/Models/enums/Symbols.java
-/home/sirbon/Documents/StudentFiles/segundoSemestre2023/Lenguajes/Practicas/Lab/Primera practica/analyzer/src/main/java/GUI/UserInterfaceMagnament.java
