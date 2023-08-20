@@ -34,12 +34,12 @@ public class UserInterfaceMagnament {
 
         try {
             int position = selectedTextArea.getCaretPosition();
-            row = selectedTextArea.getLineOfOffset(position);
-            col = position - selectedTextArea.getLineStartOffset(row) + 1;
+            row = selectedTextArea.getLineOfOffset(position);   //toma la posicion del cursos en la jtext area
+            col = position - selectedTextArea.getLineStartOffset(row) + 1;  //inicia el contador en la linea donde inicia la escritura del jtext area
             row += 1;
-            infoJLabel.setText("Line: " + row + "  Col:" + col);
+            infoJLabel.setText("Line: " + row + "  Col:" + col);    //setea la informacion a la etiqueta correspondiente
         } catch (BadLocationException e) {
-
+            
         }
 
     }
@@ -48,7 +48,7 @@ public class UserInterfaceMagnament {
 
         for (Token token : tokenGroup) {
             TokenizerGraph tg = new TokenizerGraph();
-            panelList.add(tg.buttonGrapher(token, toGraphPanel, toGrphLabel, jdialogParent));
+            panelList.add(tg.buttonGrapher(token, toGraphPanel, toGrphLabel, jdialogParent)); //apila los botones necesarios
 
         }
 

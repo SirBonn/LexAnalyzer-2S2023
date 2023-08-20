@@ -15,6 +15,8 @@ import Models.enums.Symbols;
 public class DefinedMatrix {
 
     public final int[][] stateMatrix = new int[MatrixStates.values().length][Symbols.values().length];
+    
+//definimos los estados de la matriz facilitando el movimiento dentro de la misma segun el token leido y el estado en donde se encuentre
 
     {
         stateMatrix[MatrixStates.S0.ordinal()][Symbols.UNDERSCORE.ordinal()] = MatrixStates.S1.ordinal();
@@ -169,14 +171,14 @@ public class DefinedMatrix {
         for (int i = 0; i < this.stateMatrix.length; i++) {
             for (int j = 0; j < this.stateMatrix[0].length; j++) {
                 if (this.stateMatrix[i][j] == 0) {
-                    this.stateMatrix[i][j] = MatrixStates.SERROR.ordinal();
+                    this.stateMatrix[i][j] = MatrixStates.SERROR.ordinal(); //llenamos el resto de la matriz con un estado de error, en caso de moverse a un estado inesperado
                 }
             }
         }
     }
 
     public int getStateMatrix(int state, int symbol) {
-        return stateMatrix[state][symbol];
+        return stateMatrix[state][symbol]; //devolvemos el estado de la matriz
     }
 
 }

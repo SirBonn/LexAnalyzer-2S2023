@@ -123,6 +123,7 @@ public class SymbolController {
 
     public boolean isReservedChar(char charAt, int state) {
 
+        //creamos un conjunto con caracteres reservados o inmutables
         ArrayList<String> reservedChar = new ArrayList<>();
 
         reservedChar.add("==");
@@ -153,11 +154,12 @@ public class SymbolController {
         if (isAceptedChar(charAt, state)) {
             return false;
         } else {
-            return reservedChar.contains(Character.toString(charAt));
+            return reservedChar.contains(Character.toString(charAt)); //devolvemos si es un caracter inmutable
         }
     }
 
     private boolean isAceptedChar(char charAt, int state) {
+        //verificamos que el caracter que recibimos lo podamos aceptar en una cadena de texto o en un comentario
         if (charAt != '\n') {
             return (state == MatrixStates.S9.ordinal() || state == MatrixStates.S10.ordinal() || state == MatrixStates.S11.ordinal()
                     || state == MatrixStates.S13.ordinal() || state == MatrixStates.S14.ordinal());

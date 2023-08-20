@@ -10,11 +10,9 @@ import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
 /**
@@ -29,6 +27,7 @@ public class FileController {
 
             @Override
             public void actionPerformed(ActionEvent e) {
+                
                 JFileChooser chooseFile = new JFileChooser();
                 chooseFile.showOpenDialog(null);
                 File file = chooseFile.getSelectedFile();
@@ -38,9 +37,9 @@ public class FileController {
                     String text = "";
                     String line;
                     while ((line = br.readLine()) != null) {
-                        text += line + "\n";
+                        text += line + "\n";    //creamos un bloque de texto por cada linea leida por el buffer de lectura
                     }
-                    textArea.setText(text);
+                    textArea.setText(text); //seteamos el texto extraido del archivo
                 } catch (IOException a) {
                     
                 }
@@ -48,26 +47,4 @@ public class FileController {
         });
      }
      
-     public void saveFile(JButton exportButton, JTextArea textArea){
-     
-          exportButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    JFileChooser file = new JFileChooser(System.getProperty("user.dir"));
-                    JOptionPane jOptionPane = new JOptionPane();
-                    file.showSaveDialog(jOptionPane);
-                    if (file.getSelectedFile() != null) {
-                        try (FileWriter fileSave = new FileWriter(file.getSelectedFile())) {
-                            fileSave.write(textArea.getText());
-                            JOptionPane.showMessageDialog(jOptionPane, "el archivo se guardo correctamente");
-                        }
-                    }
-                } catch (IOException ex) {
-                    
-                }
-            }
-
-        });
-     }
 }

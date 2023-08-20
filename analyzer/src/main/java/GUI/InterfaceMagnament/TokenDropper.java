@@ -12,18 +12,22 @@ import javax.swing.JButton;
  *
  * @author sirbon
  */
-public class TokenDropper extends JButton{
-    
+@lombok.Getter
+@lombok.Setter
+public class TokenDropper extends JButton {
+
     private Token token;
 
     public TokenDropper() {
     }
 
     public TokenDropper(Token token) {
-        super(token.getTokenSymbol());
+        super(token.getTokenSymbol());  //configuramos el texto del boton segun el valor del token
+
+        this.setBackground(new java.awt.Color(102, 102, 102));  //configuramos colores del boton
+        this.setForeground(new java.awt.Color(153, 255, 153));
+
         this.token = token;
     }
-    
-    
-    
+
 }

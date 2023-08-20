@@ -17,8 +17,8 @@ import Models.enums.MatrixStates;
 public class TokenController {
 
     private String text;
-    private int rowCount;
-    private int colCount;
+    private int rowCount=1;
+    private int colCount=1;
     private char[] textAtChar;
     private String lex = "";
     private Token token;
@@ -30,9 +30,9 @@ public class TokenController {
     }
 
     public void initParser(String text) {
-        this.text = text + "\n";
-        this.textAtChar = this.text.toCharArray();
-        if (textAtChar.length > 1) {
+        this.text = text + "\n";                            //agregamos un salgo de linea final en caso de que no se indique final de linea
+        this.textAtChar = this.text.toCharArray();  // convertimos la cadena de texto a un arreglo de caracteres
+        if (textAtChar.length > 1) {                    //leemos siempre y cuando exista al menos un caracter
             readChars();
         }
     }
@@ -42,38 +42,42 @@ public class TokenController {
         char symbolChar;
 
         for (int i = 0; i < this.textAtChar.length; i++) {
-            symbolChar = textAtChar[i];
-            colCount++;
+            
+            symbolChar = textAtChar[i];//leemos caracter a caracter
+            colCount++;                     // aumentamos conteo de columnas al avanzar en el arreglo de caracteres
+            
             if (symbolChar == '\n') {
-                rowCount++;
+                rowCount++;             // aumentamos una fila al saltar de linea
+                colCount = 1;           // reseteamos el conteo de columnas al saltar de linea
             }
 
-            if (stateController.isEndState(symbolChar, stateController.getLastState())) {
-                sendToken();
-                if (symbolChar != '\n' && symbolChar != ' ') {
+            if (stateController.isEndState(symbolChar, stateController.getLastState())) {       //evaluamos si se encuentra en un estado de finalizacion de token
+                sendToken(colCount, rowCount);                                                          //guardamos token
+                if (symbolChar != '\n' && symbolChar != ' ') {              //leemos token en donde se encuentra el conteo siempre que no sea un espacio vacio o un salto de lina
                     lex = Character.toString(symbolChar);
                     stateController.rideStates(symbolChar);
-                    sendToken();
+                    sendToken(colCount, rowCount);                      //guardamos token 
                 }
             } else {
-                stateController.rideStates(symbolChar);
-                lex += symbolChar;
+                stateController.rideStates(symbolChar);                 //recorremos la matriz con el token que leemos
+                lex += symbolChar;                                          //agregamos el caracter al token que estamos leyendo
             }
         }
 
-        textAtChar = "".toCharArray();
+        textAtChar = "".toCharArray();                              //limpiamos el arreglo de caracteres al finalizar la lectura
     }
 
     public void clearTokens() {
         tokenBag.clearBag();
     }
 
-    private void sendToken() {
-        if (!lex.equals("")) {
-            tokenBag.saveToken(new Token(stateController.getLastState(), lex));
-            lex = "";
-            stateController.setLastState(MatrixStates.S0.ordinal());
-            stateController.setPreviusState(MatrixStates.S0.ordinal());
+    private void sendToken(int col, int row) {
+        
+        if (!lex.equals("")) {  //siempre que el lex que guardamos sea diferente a una cadena vacia
+            tokenBag.saveToken(new Token(stateController.getLastState(), lex, row, col));   //guardamos un nuevo token con las caracteristicas obtenidas en una bolsa de tokens(arraylist)
+            lex = "";                   //reseteamos el lexema
+            stateController.setLastState(MatrixStates.S0.ordinal());  //reseteamos el estado actual de donde se encuentra nuestra matriz
+            stateController.setPreviusState(MatrixStates.S0.ordinal());  //reseteamos el estado anterior de donde se encontraba la matriz
         }
 
     }

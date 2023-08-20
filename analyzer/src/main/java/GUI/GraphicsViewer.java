@@ -53,8 +53,14 @@ public class GraphicsViewer extends javax.swing.JDialog {
         decimalPane = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(153, 153, 153));
+        setForeground(new java.awt.Color(153, 153, 153));
 
+        graphicPanel.setBackground(new java.awt.Color(153, 153, 153));
         graphicPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        graphicPanel.setForeground(new java.awt.Color(153, 153, 153));
+
+        toGraphLabel.setForeground(new java.awt.Color(153, 153, 153));
 
         javax.swing.GroupLayout graphicPanelLayout = new javax.swing.GroupLayout(graphicPanel);
         graphicPanel.setLayout(graphicPanelLayout);
@@ -73,18 +79,25 @@ public class GraphicsViewer extends javax.swing.JDialog {
                 .addContainerGap())
         );
 
+        jTabbedPane1.setBackground(new java.awt.Color(204, 204, 204));
+        jTabbedPane1.setForeground(new java.awt.Color(0, 0, 0));
+
+        identifiersPane.setBackground(new java.awt.Color(153, 153, 153));
         identifiersPane.setLayout(new java.awt.GridLayout(tokenBag.groupSize(TokenTypes.IDNT_TKN.ordinal())
             , 0));
     jTabbedPane1.addTab("Identifiers", identifiersPane);
 
+    rsrvdWordsPane.setBackground(new java.awt.Color(153, 153, 153));
     rsrvdWordsPane.setLayout(new java.awt.GridLayout(tokenBag.groupSize(TokenTypes.RSRVDWRD_TKN.ordinal())
         , 0));
 jTabbedPane1.addTab("Reserved Words", rsrvdWordsPane);
 
+integersPane.setBackground(new java.awt.Color(153, 153, 153));
 integersPane.setLayout(new java.awt.GridLayout(tokenBag.groupSize(TokenTypes.INT_TKN.ordinal())
     , 0));
     jTabbedPane1.addTab("Integers", integersPane);
 
+    decimalPane.setBackground(new java.awt.Color(153, 153, 153));
     decimalPane.setLayout(new java.awt.GridLayout(tokenBag.groupSize(TokenTypes.DEC_TKN.ordinal())
         , 0));
 jTabbedPane1.addTab("Decimals", decimalPane);

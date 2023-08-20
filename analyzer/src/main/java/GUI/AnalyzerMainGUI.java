@@ -56,7 +56,11 @@ public class AnalyzerMainGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Lexic Analyzer");
+        setBackground(new java.awt.Color(51, 51, 51));
         setResizable(false);
+
+        analyzerPane.setBackground(new java.awt.Color(51, 51, 51));
+        analyzerPane.setForeground(new java.awt.Color(204, 204, 0));
 
         textInsertSection.getDocument().addDocumentListener(new DocumentListener(){
             @Override
@@ -77,47 +81,65 @@ public class AnalyzerMainGUI extends javax.swing.JFrame {
             }
 
         });
+        textInsertSection.setBackground(new java.awt.Color(204, 204, 204));
         textInsertSection.setColumns(20);
+        textInsertSection.setForeground(new java.awt.Color(0, 0, 0));
         textInsertSection.setLineWrap(true);
         textInsertSection.setRows(5);
+        textInsertSection.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createEtchedBorder()));
         textScrollPane1.setViewportView(textInsertSection);
 
         resultsSection.setEditable(false);
+        resultsSection.setBackground(new java.awt.Color(204, 204, 204));
         resultsSection.setColumns(20);
+        resultsSection.setForeground(new java.awt.Color(0, 0, 0));
         resultsSection.setLineWrap(true);
         resultsSection.setRows(5);
         resultsSection.setToolTipText("");
         resultsSection.setWrapStyleWord(true);
         resultScrollPane2.setViewportView(resultsSection);
 
+        runButton.setBackground(new java.awt.Color(102, 102, 102));
+        runButton.setForeground(new java.awt.Color(153, 255, 153));
         runButton.setText("Analyze");
+        runButton.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createEtchedBorder()));
         runButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 runButtonActionPerformed(evt);
             }
         });
 
+        clearButton.setBackground(new java.awt.Color(102, 102, 102));
+        clearButton.setForeground(new java.awt.Color(255, 255, 255));
         clearButton.setText("Clear");
+        clearButton.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createEtchedBorder()));
         clearButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clearButtonActionPerformed(evt);
             }
         });
 
+        loadFIle.setBackground(new java.awt.Color(102, 102, 102));
+        loadFIle.setForeground(new java.awt.Color(255, 204, 0));
         loadFIle.setText("Load");
+        loadFIle.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createEtchedBorder()));
         loadFIle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loadFIleActionPerformed(evt);
             }
         });
 
-        exportFile.setText("Exortar");
+        exportFile.setBackground(new java.awt.Color(102, 102, 102));
+        exportFile.setForeground(new java.awt.Color(102, 102, 255));
+        exportFile.setText("Exportar");
+        exportFile.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createEtchedBorder()));
         exportFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exportFileActionPerformed(evt);
             }
         });
 
+        infoJLabel.setForeground(new java.awt.Color(51, 255, 51));
         infoJLabel.setText("Line: Col:");
 
         javax.swing.GroupLayout analyzerPaneLayout = new javax.swing.GroupLayout(analyzerPane);
@@ -125,40 +147,45 @@ public class AnalyzerMainGUI extends javax.swing.JFrame {
         analyzerPaneLayout.setHorizontalGroup(
             analyzerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(analyzerPaneLayout.createSequentialGroup()
-                .addGap(0, 22, Short.MAX_VALUE)
+                .addGap(0, 23, Short.MAX_VALUE)
                 .addGroup(analyzerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, analyzerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(analyzerPaneLayout.createSequentialGroup()
-                            .addComponent(runButton, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(runButton, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(loadFIle, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(exportFile, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(exportFile, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(textScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1015, Short.MAX_VALUE)
                         .addComponent(resultScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, analyzerPaneLayout.createSequentialGroup()
                         .addComponent(infoJLabel)
                         .addGap(20, 20, 20)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         analyzerPaneLayout.setVerticalGroup(
             analyzerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, analyzerPaneLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(analyzerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(analyzerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(runButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(loadFIle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(exportFile, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(loadFIle, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(exportFile, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(textScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 498, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(resultScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(infoJLabel))
+                .addComponent(infoJLabel)
+                .addContainerGap(12, Short.MAX_VALUE))
         );
+
+        jMenuBar1.setBackground(new java.awt.Color(102, 102, 102));
+        jMenuBar1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jMenuBar1.setForeground(new java.awt.Color(0, 102, 102));
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -172,17 +199,11 @@ public class AnalyzerMainGUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(analyzerPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(analyzerPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(analyzerPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(analyzerPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();

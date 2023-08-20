@@ -12,8 +12,10 @@ public class App {
     public static void main(String[] args) {
         
         Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+            //añadimos una accion al proceso de cierre del programa
             @Override
             public void run() {
+                //accion que sera eliminar los graphicos creados en el programa al finalizar su ejecucion
                 deleteGeneratedGraphs();
             }
         }));
@@ -23,7 +25,7 @@ public class App {
 
     private static void deleteGeneratedGraphs() {
         String resourcesFolderPath = System.getProperty("user.dir") + "/src/main/Resources";
-
+        //creamos un buscador de archivos que responda a un filtro para eliminarlos
         File resourcesFolder = new File(resourcesFolderPath);
         if (resourcesFolder.exists() && resourcesFolder.isDirectory()) {
            File[] imageFiles = resourcesFolder.listFiles(new ImageFileFilter());
@@ -35,7 +37,7 @@ public class App {
         }
     }
     
-    
+    //creamos un filtro de archivos, para buscar .dot y .png
     private static class ImageFileFilter implements java.io.FileFilter {
         @Override
         public boolean accept(File pathname) {

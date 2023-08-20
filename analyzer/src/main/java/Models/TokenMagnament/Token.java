@@ -24,18 +24,22 @@ public class Token {
     private String tokenSymbol;
     private int tokenGroup;
     private int tokenType;
+    private int row;
+    private int col;
 
     public Token() {
     }
 
-    public Token(int finalState, String lex) {
+    public Token(int finalState, String lex, int row, int col) {
 
+        //creamos los tokens segun el estado final de la matriz
+        
         if (finalState == MatrixStates.S2.ordinal() || finalState == MatrixStates.S3.ordinal() || finalState == MatrixStates.S4.ordinal()) {
-            if (isReservedWord(lex)) {
+            if (isReservedWord(lex)) { 
                 System.out.println(lex + " es una palabra reservada");
-                createReservedWordTkn(lex);
+                createReservedWordTkn(lex);     //en caso de encontrar el token dentro de la lista de palabras reservadas creamos el token respectivo
             } else {
-                this.tokenName = TokenTypes.IDNT_TKN.toString();
+                this.tokenName = TokenTypes.IDNT_TKN.toString();    //de no ser una palabra reservada creamos un token de identificador
                 this.tokenSymbol = lex;
                 this.tokenType = TokenTypes.IDNT_TKN.ordinal();
                 this.tokenGroup = TokenTypes.IDNT_TKN.ordinal();
@@ -205,33 +209,37 @@ public class Token {
             this.tokenSymbol = lex;
             this.tokenType = TokenTypes.UNREC_TKN.ordinal();
         }
+        this.row = row; //seteamos la posicion del token
+        this.col = col;
     }
-
+    
     private boolean isReservedWord(String lex) {
         Set<String> reservedWords = new HashSet<>();
 
         for (ReservedWordsList value : ReservedWordsList.values()) {
-            reservedWords.add(value.toString().toLowerCase());
+            reservedWords.add(value.toString().toLowerCase());  //creamos un con junto de valores unicos para la lista de palabras reservadas en el enum
         }
 
-        return reservedWords.contains(lex);
+        return reservedWords.contains(lex); //devolvemos si el lexema forma parte del conjunto de palabras reservadas
     }
+    private String string;
 
     private void createReservedWordTkn(String lex) {
-        for (ReservedWordsList value : ReservedWordsList.values()) {
+        
+        for (ReservedWordsList value : ReservedWordsList.values()) { //creamos el token de palabra reservada segun los valores del enum
             if (lex.equals(value.toString().toLowerCase())) {
                 this.tokenName = ReservedWordsTokens.values()[value.ordinal()].toString();
                 this.tokenSymbol = lex;
                 this.tokenType = TokenTypes.values().length + ReservedWordsTokens.values()[value.ordinal()].ordinal();
                 this.tokenGroup = TokenTypes.RSRVDWRD_TKN.ordinal();
-                break;
+                break; //rompemos el ciclo terminar la construccion del token
             }
         }
     }
 
     @Override
     public String toString() {
-        return "Token:\t" + "|| Token ID:  " + tokenName + "|| Symbolo:  " + tokenSymbol + "|| tokenType=" + tokenType + "||";
+        return "||Token ["+row+", " +col+"] ID:  " + tokenName + "\t||   Type=" + tokenType + "||\t" + "|| Symbolo:  " + tokenSymbol;
     }
 
 }
