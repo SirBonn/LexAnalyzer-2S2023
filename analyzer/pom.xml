@@ -99,7 +99,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>ipc1.seccion.a.granja.RunSquareFarm</mainClass>
+                            <mainClass>formalslang.analyzer.App</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
