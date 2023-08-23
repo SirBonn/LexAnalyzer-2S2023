@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 /**
  *
@@ -20,7 +21,7 @@ import javax.swing.JPanel;
  */
 public class TokenizerGraph {
 
-    public JButton buttonGrapher(Token token, JPanel toGrPanel, JLabel toGraphLabel, JDialog jDialog) { //creamos el boton que formara parte del panel para mostrar
+    public JButton buttonGrapher(Token token, JScrollPane toGrPanel, JLabel toGraphLabel, JDialog jDialog) { //creamos el boton que formara parte del panel para mostrar
         
         TokenDropper tokenDropper = new TokenDropper(token);
 
@@ -41,7 +42,7 @@ public class TokenizerGraph {
         return tokenDropper;
     }
 
-    public void setGraph(JLabel toGrLabel, JPanel toGrPanel, Token token) {
+    public void setGraph(JLabel toGrLabel, JScrollPane toGrPanel, Token token) {
 
         //configuramos el grafico en el lugar requerido
         

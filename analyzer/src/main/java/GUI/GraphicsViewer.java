@@ -44,40 +44,28 @@ public class GraphicsViewer extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        graphicPanel = new javax.swing.JPanel();
+        graphicPanel = new javax.swing.JScrollPane();
         toGraphLabel = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
         identifiersPane = new javax.swing.JPanel();
-        rsrvdWordsPane = new javax.swing.JPanel();
-        integersPane = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
         decimalPane = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        integersPane = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        rsrvdWordsPane = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(153, 153, 153));
         setForeground(new java.awt.Color(153, 153, 153));
 
         graphicPanel.setBackground(new java.awt.Color(153, 153, 153));
-        graphicPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        graphicPanel.setForeground(new java.awt.Color(153, 153, 153));
+        graphicPanel.setForeground(new java.awt.Color(255, 255, 204));
 
+        toGraphLabel.setBackground(new java.awt.Color(153, 153, 153));
         toGraphLabel.setForeground(new java.awt.Color(153, 153, 153));
-
-        javax.swing.GroupLayout graphicPanelLayout = new javax.swing.GroupLayout(graphicPanel);
-        graphicPanel.setLayout(graphicPanelLayout);
-        graphicPanelLayout.setHorizontalGroup(
-            graphicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(graphicPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(toGraphLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 597, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        graphicPanelLayout.setVerticalGroup(
-            graphicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(graphicPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(toGraphLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 538, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        graphicPanel.setViewportView(toGraphLabel);
 
         jTabbedPane1.setBackground(new java.awt.Color(204, 204, 204));
         jTabbedPane1.setForeground(new java.awt.Color(0, 0, 0));
@@ -85,22 +73,30 @@ public class GraphicsViewer extends javax.swing.JDialog {
         identifiersPane.setBackground(new java.awt.Color(153, 153, 153));
         identifiersPane.setLayout(new java.awt.GridLayout(tokenBag.groupSize(TokenTypes.IDNT_TKN.ordinal())
             , 0));
-    jTabbedPane1.addTab("Identifiers", identifiersPane);
+    jScrollPane1.setViewportView(identifiersPane);
 
-    rsrvdWordsPane.setBackground(new java.awt.Color(153, 153, 153));
-    rsrvdWordsPane.setLayout(new java.awt.GridLayout(tokenBag.groupSize(TokenTypes.RSRVDWRD_TKN.ordinal())
-        , 0));
-jTabbedPane1.addTab("Reserved Words", rsrvdWordsPane);
-
-integersPane.setBackground(new java.awt.Color(153, 153, 153));
-integersPane.setLayout(new java.awt.GridLayout(tokenBag.groupSize(TokenTypes.INT_TKN.ordinal())
-    , 0));
-    jTabbedPane1.addTab("Integers", integersPane);
+    jTabbedPane1.addTab("Identifiers", jScrollPane1);
 
     decimalPane.setBackground(new java.awt.Color(153, 153, 153));
     decimalPane.setLayout(new java.awt.GridLayout(tokenBag.groupSize(TokenTypes.DEC_TKN.ordinal())
         , 0));
-jTabbedPane1.addTab("Decimals", decimalPane);
+jScrollPane2.setViewportView(decimalPane);
+
+jTabbedPane1.addTab("Decimal", jScrollPane2);
+
+integersPane.setBackground(new java.awt.Color(153, 153, 153));
+integersPane.setLayout(new java.awt.GridLayout(tokenBag.groupSize(TokenTypes.INT_TKN.ordinal())
+    , 0));
+    jScrollPane3.setViewportView(integersPane);
+
+    jTabbedPane1.addTab("Integers", jScrollPane3);
+
+    rsrvdWordsPane.setBackground(new java.awt.Color(153, 153, 153));
+    rsrvdWordsPane.setLayout(new java.awt.GridLayout(tokenBag.groupSize(TokenTypes.RSRVDWRD_TKN.ordinal())
+        , 0));
+jScrollPane4.setViewportView(rsrvdWordsPane);
+
+jTabbedPane1.addTab("ReservedWords", jScrollPane4);
 
 javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
 getContentPane().setLayout(layout);
@@ -109,8 +105,8 @@ layout.setHorizontalGroup(
     .addGroup(layout.createSequentialGroup()
         .addContainerGap()
         .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addComponent(graphicPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+        .addComponent(graphicPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 607, Short.MAX_VALUE)
         .addContainerGap())
     );
     layout.setVerticalGroup(
@@ -118,8 +114,8 @@ layout.setHorizontalGroup(
         .addGroup(layout.createSequentialGroup()
             .addContainerGap()
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 554, Short.MAX_VALUE)
-                .addComponent(graphicPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(graphicPanel)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 554, Short.MAX_VALUE))
             .addContainerGap())
     );
 
@@ -140,9 +136,13 @@ layout.setHorizontalGroup(
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel decimalPane;
-    private javax.swing.JPanel graphicPanel;
+    private javax.swing.JScrollPane graphicPanel;
     private javax.swing.JPanel identifiersPane;
     private javax.swing.JPanel integersPane;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JPanel rsrvdWordsPane;
     private javax.swing.JLabel toGraphLabel;

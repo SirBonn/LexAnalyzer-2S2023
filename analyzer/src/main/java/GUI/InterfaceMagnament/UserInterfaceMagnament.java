@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.text.BadLocationException;
 
@@ -23,7 +24,7 @@ import javax.swing.text.BadLocationException;
 public class UserInterfaceMagnament {
 
     private JDialog jdialogParent;
-    private JPanel toGraphPanel;
+    private JScrollPane toGraphPanel;
     private JLabel toGrphLabel;
     
     
@@ -58,7 +59,7 @@ public class UserInterfaceMagnament {
         this.jdialogParent = jdialogParent;
     }
 
-    public void setToGraphPanel(JPanel toGraphPanel) {
+    public void setToGraphPanel(JScrollPane toGraphPanel) {
         this.toGraphPanel = toGraphPanel;
     }
 
