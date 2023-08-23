@@ -24,7 +24,7 @@ public class App {
     }
 
     private static void deleteGeneratedGraphs() {
-        String resourcesFolderPath = System.getProperty("user.dir") + "/src/main/Resources";
+        String resourcesFolderPath = System.getProperty("user.dir");
         //creamos un buscador de archivos que responda a un filtro para eliminarlos
         File resourcesFolder = new File(resourcesFolderPath);
         if (resourcesFolder.exists() && resourcesFolder.isDirectory()) {

@@ -47,7 +47,7 @@ public class TokenizerGraph {
         //configuramos el grafico en el lugar requerido
         
         toGrLabel.setIcon(null);
-        String ruta = System.getProperty("user.dir") + "/src/main/Resources/"+token.getTokenSymbol()+".png";
+        String ruta = System.getProperty("user.dir") + "/"+token.getTokenSymbol()+".png";
         ImageIcon imageIcon = new ImageIcon(ruta);
         toGrLabel.setIcon(imageIcon);
         

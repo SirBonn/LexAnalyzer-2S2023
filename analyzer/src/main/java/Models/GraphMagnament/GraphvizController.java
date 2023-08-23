@@ -62,7 +62,7 @@ public class GraphvizController {
         FileWriter fileWriter = null;
         PrintWriter printWriter = null;
         
-        String ruta = System.getProperty("user.dir") + "/src/main/Resources/tkn_grph.dot";
+        String ruta = System.getProperty("user.dir") + "/tkn_grph.dot";
         
         try {
             fileWriter = new FileWriter(ruta);
@@ -84,8 +84,8 @@ public class GraphvizController {
         try {
             //leemos el archivo .dot y creamos el grafico .png en base a ese archivo
             dotFileMaker(getTknGraph(tknSymb));
-            String ruta = System.getProperty("user.dir") + "/src/main/Resources/tkn_grph.dot";
-            String rutaGr = System.getProperty("user.dir") + "/src/main/Resources/"+tknSymb+".png";
+            String ruta = System.getProperty("user.dir") + "/tkn_grph.dot";
+            String rutaGr = System.getProperty("user.dir") + "/"+tknSymb+".png";
             ProcessBuilder processBuilder = new ProcessBuilder("dot", "-Tpng", "-o", rutaGr, ruta);
             Process process = processBuilder.start();
             int exitCode = process.waitFor();
