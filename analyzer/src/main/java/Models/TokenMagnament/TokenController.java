@@ -17,8 +17,8 @@ import Models.enums.MatrixStates;
 public class TokenController {
 
     private String text;
-    private int rowCount=1;
-    private int colCount=1;
+    private int rowCount = 1;
+    private int colCount = 1;
     private char[] textAtChar;
     private String lex = "";
     private Token token;
@@ -42,10 +42,10 @@ public class TokenController {
         char symbolChar;
 
         for (int i = 0; i < this.textAtChar.length; i++) {
-            
+
             symbolChar = textAtChar[i];//leemos caracter a caracter
             colCount++;                     // aumentamos conteo de columnas al avanzar en el arreglo de caracteres
-            
+
             if (symbolChar == '\n') {
                 rowCount++;             // aumentamos una fila al saltar de linea
                 colCount = 1;           // reseteamos el conteo de columnas al saltar de linea
@@ -69,10 +69,12 @@ public class TokenController {
 
     public void clearTokens() {
         tokenBag.clearBag();
+        this.colCount = 1;
+        this.rowCount = 1;
     }
 
     private void sendToken(int col, int row) {
-        
+
         if (!lex.equals("")) {  //siempre que el lex que guardamos sea diferente a una cadena vacia
             tokenBag.saveToken(new Token(stateController.getLastState(), lex, row, col));   //guardamos un nuevo token con las caracteristicas obtenidas en una bolsa de tokens(arraylist)
             lex = "";                   //reseteamos el lexema
