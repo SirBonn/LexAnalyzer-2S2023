@@ -4,7 +4,6 @@ formalslang/analyzer/App$ImageFileFilter.class
 GUI/AnalyzerMainGUI$4.class
 GUI/GraphicsViewer.class
 formalslang/analyzer/App.class
-Models/FilesMagnament/FileController$2.class
 Models/StatesMagtnament/StateController.class
 Models/enums/ReservedWordsTokens.class
 GUI/InterfaceMagnament/UserInterfaceMagnament.class
