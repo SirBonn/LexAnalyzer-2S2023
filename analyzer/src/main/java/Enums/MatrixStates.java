@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Lexic.enums;
+package Enums;
 
 /**
  *
@@ -55,6 +55,21 @@ public enum MatrixStates {
     S42,
     S43,
     S44,
+    S45,
+    S46,
+    S47,
+    S48,
+    S49,
+    S50,
+    S51,
+    S52,
+    S53,
+    S54,
+    S55,
+    S56,
+    S57,
+    S58,
+    S59,
     SACEPT,
     SERROR
 

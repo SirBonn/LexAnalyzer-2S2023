@@ -6,7 +6,8 @@
 package Lexic.TokenMagnament;
 
 import Lexic.StatesMagtnament.StateController;
-import Lexic.enums.MatrixStates;
+import Enums.MatrixStates;
+import Sintax.ExpressionMagnament.ExpressionControler;
 
 /**
  *
@@ -30,7 +31,7 @@ public class TokenController {
     }
 
     public void initParser(String text) {
-        this.text = text + "\n";                            //agregamos un salgo de linea final en caso de que no se indique final de linea
+        this.text = text +" ";                            //agregamos un salgo de linea final en caso de que no se indique final de linea
         this.textAtChar = this.text.toCharArray();  // convertimos la cadena de texto a un arreglo de caracteres
         if (textAtChar.length > 1) {                    //leemos siempre y cuando exista al menos un caracter
             readChars();
@@ -53,11 +54,11 @@ public class TokenController {
 
             if (stateController.isEndState(symbolChar, stateController.getLastState())) {       //evaluamos si se encuentra en un estado de finalizacion de token
                 sendToken(colCount, rowCount);                                                          //guardamos token
-                if (symbolChar != '\n' && symbolChar != ' ') {              //leemos token en donde se encuentra el conteo siempre que no sea un espacio vacio o un salto de lina
+                           //leemos token en donde se encuentra el conteo siempre que no sea un espacio vacio o un salto de lina
                     lex = Character.toString(symbolChar);
                     stateController.rideStates(symbolChar);
                     sendToken(colCount, rowCount);                      //guardamos token 
-                }
+                
             } else {
                 stateController.rideStates(symbolChar);                 //recorremos la matriz con el token que leemos
                 lex += symbolChar;                                          //agregamos el caracter al token que estamos leyendo
@@ -65,6 +66,11 @@ public class TokenController {
         }
 
         textAtChar = "".toCharArray();                              //limpiamos el arreglo de caracteres al finalizar la lectura
+        System.out.println("\n\n\t--- Iniciamos analisis sintactico:\n");
+        
+        //inicio de alnalisis sintactico
+        new ExpressionControler(tokenBag);
+        
     }
 
     public void clearTokens() {
@@ -79,7 +85,7 @@ public class TokenController {
             tokenBag.saveToken(new Token(stateController.getLastState(), lex, row, col));   //guardamos un nuevo token con las caracteristicas obtenidas en una bolsa de tokens(arraylist)
             lex = "";                   //reseteamos el lexema
             stateController.setLastState(MatrixStates.S0.ordinal());  //reseteamos el estado actual de donde se encuentra nuestra matriz
-            stateController.setPreviusState(MatrixStates.S0.ordinal());  //reseteamos el estado anterior de donde se encontraba la matriz
+            stateController.setPreviousState(MatrixStates.S0.ordinal());  //reseteamos el estado anterior de donde se encontraba la matriz
         }
 
     }

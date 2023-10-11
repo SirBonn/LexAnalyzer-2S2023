@@ -7,7 +7,7 @@ package GUI;
 
 import GUI.InterfaceMagnament.UserInterfaceMagnament;
 import Lexic.TokenMagnament.TokenBag;
-import Lexic.enums.TokenTypes;
+import Enums.TokenTypes;
 import javax.swing.JFrame;
 
 /**

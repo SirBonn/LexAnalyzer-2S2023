@@ -5,19 +5,18 @@
  */
 package Lexic.StatesMagtnament;
 
-import Lexic.enums.MatrixStates;
-import Lexic.enums.Symbols;
+import Enums.MatrixStates;
+import Enums.Symbols;
 
 /**
  *
  * @author sirbon
  */
-public class DefinedMatrix {
+public class DefLexicMatrix {
 
     public final int[][] stateMatrix = new int[MatrixStates.values().length][Symbols.values().length];
-    
-//definimos los estados de la matriz facilitando el movimiento dentro de la misma segun el token leido y el estado en donde se encuentre
 
+//definimos los estados de la matriz facilitando el movimiento dentro de la misma segun el token leido y el estado en donde se encuentre
     {
         stateMatrix[MatrixStates.S0.ordinal()][Symbols.UNDERSCORE.ordinal()] = MatrixStates.S1.ordinal();
         stateMatrix[MatrixStates.S0.ordinal()][Symbols.LETTER.ordinal()] = MatrixStates.S2.ordinal();
@@ -77,15 +76,19 @@ public class DefinedMatrix {
         stateMatrix[MatrixStates.S5.ordinal()][Symbols.DOT.ordinal()] = MatrixStates.S6.ordinal();
         stateMatrix[MatrixStates.S9.ordinal()][Symbols.DOT.ordinal()] = MatrixStates.S9.ordinal();
 
-        stateMatrix[MatrixStates.S9.ordinal()][Symbols.HASTAG.ordinal()] = MatrixStates.S9.ordinal();
+        stateMatrix[MatrixStates.S8.ordinal()][Symbols.HASTAG.ordinal()] = MatrixStates.S9.ordinal();
+        stateMatrix[MatrixStates.SERROR.ordinal()][Symbols.HASTAG.ordinal()] = MatrixStates.S9.ordinal();
+        stateMatrix[MatrixStates.SERROR.ordinal()][Symbols.ENDLINE.ordinal()] = MatrixStates.S9.ordinal();
 
         stateMatrix[MatrixStates.S9.ordinal()][Symbols.DOBQUOTE.ordinal()] = MatrixStates.S9.ordinal();
         stateMatrix[MatrixStates.S10.ordinal()][Symbols.DOBQUOTE.ordinal()] = MatrixStates.S12.ordinal();
         stateMatrix[MatrixStates.S11.ordinal()][Symbols.DOBQUOTE.ordinal()] = MatrixStates.S12.ordinal();
+        stateMatrix[MatrixStates.SERROR.ordinal()][Symbols.DOBQUOTE.ordinal()] = MatrixStates.S12.ordinal();
 
         stateMatrix[MatrixStates.S9.ordinal()][Symbols.SIMPLQUOTE.ordinal()] = MatrixStates.S9.ordinal();
         stateMatrix[MatrixStates.S13.ordinal()][Symbols.SIMPLQUOTE.ordinal()] = MatrixStates.S15.ordinal();
         stateMatrix[MatrixStates.S14.ordinal()][Symbols.SIMPLQUOTE.ordinal()] = MatrixStates.S15.ordinal();
+        stateMatrix[MatrixStates.SERROR.ordinal()][Symbols.SIMPLQUOTE.ordinal()] = MatrixStates.S15.ordinal();
 
         stateMatrix[MatrixStates.S9.ordinal()][Symbols.EQUAL.ordinal()] = MatrixStates.S9.ordinal();
         stateMatrix[MatrixStates.S11.ordinal()][Symbols.EQUAL.ordinal()] = MatrixStates.S11.ordinal();
@@ -166,7 +169,7 @@ public class DefinedMatrix {
 
     }
 
-    public DefinedMatrix() {
+    public DefLexicMatrix() {
 
         for (int i = 0; i < this.stateMatrix.length; i++) {
             for (int j = 0; j < this.stateMatrix[0].length; j++) {

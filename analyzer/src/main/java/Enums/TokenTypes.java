@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Lexic.enums;
+package Enums;
 
 /**
  *
@@ -33,15 +33,19 @@ public enum TokenTypes {
     DIV_TKN,
     MOD_TKN,
     MULT_TKN,
-    EXP_TKN,
+    EXPON_TKN,
     DOT_TKN,
     DBLDOT_TKN,
     ENDLINE_TKN,
     COMMA_TKN,
+    SEMICOLON_TKN,
+    SPACE_TKN,
+    TABULATOR_TOKEN,
     OPERATOR_TKN,
     COMPARATOR_TKN,
     AGRUPATION_TKN,
     RSRVDWRD_TKN,
     SINGN_TKN,
+    EXPRSN_TKN,
     UNREC_TKN
 }

@@ -5,7 +5,7 @@
  */
 package Lexic.TokenMagnament;
 
-import Lexic.enums.TokenTypes;
+import Enums.TokenTypes;
 import java.util.ArrayList;
 
 /**

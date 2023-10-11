@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Lexic.enums;
+package Enums;
 
 /**
  *
@@ -43,5 +43,5 @@ public enum ReservedWordsTokens {
     WHILE_TKN,
     WITH_TKN,
     YIELD_TKN,
-
+    VAR_TKN
 }

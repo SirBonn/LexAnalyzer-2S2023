@@ -5,10 +5,9 @@
  */
 package Lexic.StatesMagtnament;
 
-import Lexic.enums.MatrixStates;
-import Lexic.enums.Symbols;
+import Enums.MatrixStates;
+import Enums.Symbols;
 import java.util.ArrayList;
-
 
 /**
  *
@@ -110,7 +109,7 @@ public class SymbolController {
                     charValue = Symbols.ENDLINE.ordinal();
                     break;
                 case '\t':
-                    charValue = Symbols.SPACE.ordinal();
+                    charValue = Symbols.TABULATOR.ordinal();
                     break;
                 default:
                     return Symbols.OTHER.ordinal();
@@ -128,11 +127,14 @@ public class SymbolController {
         reservedChar.add("!=");
         reservedChar.add(">=");
         reservedChar.add("<=");
-        reservedChar.add("//");
-        reservedChar.add("**");
+        
         reservedChar.add("=");
         reservedChar.add("<");
         reservedChar.add(">");
+        
+        reservedChar.add("//");
+        reservedChar.add("**");
+
         reservedChar.add("+");
         reservedChar.add("-");
         reservedChar.add("*");
@@ -163,8 +165,8 @@ public class SymbolController {
     private boolean isAceptedChar(char charAt, int state) {
         //verificamos que el caracter que recibimos lo podamos aceptar en una cadena de texto o en un comentario
         if (charAt != '\n') {
-            return (state == MatrixStates.S9.ordinal() || state == MatrixStates.S10.ordinal() || state == MatrixStates.S11.ordinal()
-                    || state == MatrixStates.S13.ordinal() || state == MatrixStates.S14.ordinal());
+            return (state == MatrixStates.S8.ordinal() || state == MatrixStates.S9.ordinal() || state == MatrixStates.S10.ordinal() || state == MatrixStates.S11.ordinal()
+                    || state == MatrixStates.S13.ordinal() || state == MatrixStates.S14.ordinal() || state == MatrixStates.SERROR.ordinal());
         } else {
             return false;
 

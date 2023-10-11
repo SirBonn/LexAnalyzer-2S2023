@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Lexic.StatesMagtnament;
+package Sintax.StatesMagnament;
 
-import Enums.MatrixStates;
+import Enums.*;
+import Lexic.TokenMagnament.Token;
 
 /**
  *
@@ -15,16 +16,15 @@ import Enums.MatrixStates;
 @lombok.Setter
 public class StateController {
 
-    private int previousState;
+    private int previousState=0;
     private int lastState;
-    private DefLexicMatrix definedMatrix = new DefLexicMatrix();
-    private SymbolController symbolController = new SymbolController();
-    private boolean isAcepted;
+    private DefSintaxMatrix sintaxMatrix = new DefSintaxMatrix();
 
-    public void rideStates(char actualSymb) {
-        System.out.println("se lee " + actualSymb);
+    public void rideStates(Token token) {
+        System.out.println("se lee " + token);
         this.previousState = lastState;
-        this.lastState = definedMatrix.getStateMatrix(previousState, symbolController.getCharValue(actualSymb));     //recorremos la matriz y obtenemos el estado en donde se encuentra
+        this.lastState = sintaxMatrix.getStateMatrix(previousState, token.getTokenGroup());     //recorremos la matriz y obtenemos el estado en donde se encuentra
+        System.out.println("\ncon el token " +token.getTokenSymbol() +"[" + token.getTokenGroup()+"]");
         System.out.println("del estado: [" + previousState + "] pasamos al nuevo estado [" + lastState + "] ");
     }
 
@@ -37,10 +37,5 @@ public class StateController {
         }
         return isAcept;
     }
-    
-    public boolean isEndState(char actualChar, int state) {
-        //verificamos que el caracter final coincida con un estado de aceptacion
-        return symbolController.isReservedChar(actualChar, state);
-    }
-    
+
 }
