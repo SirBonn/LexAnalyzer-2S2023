@@ -221,7 +221,7 @@ public class Token {
         } else if (finalState == MatrixStates.S42.ordinal()) {
             //comma tkn
             this.tokenName = TokenTypes.SPACE_TKN.toString();
-            this.tokenSymbol = "\\s";
+            this.tokenSymbol = " ";
             this.tokenType = TokenTypes.SPACE_TKN.ordinal();
             this.tokenGroup = TokenTypes.SPACE_TKN.ordinal();
 

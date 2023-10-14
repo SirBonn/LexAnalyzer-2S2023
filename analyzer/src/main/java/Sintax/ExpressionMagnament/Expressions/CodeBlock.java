@@ -5,10 +5,15 @@
  */
 package Sintax.ExpressionMagnament.Expressions;
 
+import java.util.Stack;
+
 /**
  *
  * @author sirbon
  */
 public class CodeBlock {
+ 
+    private Stack<Expression> expressionsStack = new Stack<>();
     
+        
 }

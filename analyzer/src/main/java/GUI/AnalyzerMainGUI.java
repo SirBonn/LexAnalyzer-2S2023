@@ -9,6 +9,7 @@ import GUI.InterfaceMagnament.UserInterfaceMagnament;
 import Lexic.FilesMagnament.FileController;
 import Lexic.TokenMagnament.TokenBag;
 import Lexic.TokenMagnament.TokenController;
+import Sintax.ExpressionMagnament.ExpressionControler;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
@@ -23,6 +24,7 @@ public class AnalyzerMainGUI extends javax.swing.JFrame {
      */
     private final TokenController tokenController = new TokenController(new TokenBag());
     private final UserInterfaceMagnament userInterfaceMagnament = new UserInterfaceMagnament();
+    private final ExpressionControler expressionControler = new ExpressionControler();
     private final FileController fileController = new FileController();
     private GraphicsViewer gc;
 
@@ -236,7 +238,8 @@ public class AnalyzerMainGUI extends javax.swing.JFrame {
     private void runParser() {
         tokenController.clearTokens();
         tokenController.initParser(textInsertSection.getText());
-        resultsSection.setText(tokenController.getTokenBag().showTokens());
+        //resultsSection.setText(tokenController.getTokenBag().showTokens());
+        resultsSection.setText(expressionControler.showExpressions());
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

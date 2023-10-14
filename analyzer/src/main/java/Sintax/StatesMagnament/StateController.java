@@ -21,11 +21,11 @@ public class StateController {
     private DefSintaxMatrix sintaxMatrix = new DefSintaxMatrix();
 
     public void rideStates(Token token) {
-        System.out.println("se lee " + token);
+        System.out.println("-> se lee " + token);
         this.previousState = lastState;
         this.lastState = sintaxMatrix.getStateMatrix(previousState, token.getTokenGroup());     //recorremos la matriz y obtenemos el estado en donde se encuentra
-        System.out.println("\ncon el token " +token.getTokenSymbol() +"[" + token.getTokenGroup()+"]");
-        System.out.println("del estado: [" + previousState + "] pasamos al nuevo estado [" + lastState + "] ");
+        System.out.println("con el token " +token.getTokenSymbol() +"[" + token.getTokenGroup()+"]");
+        System.out.println("del estado: [" + previousState + "] pasamos al nuevo estado [" + lastState + "] \n");
     }
 
     public boolean isAceptState() {

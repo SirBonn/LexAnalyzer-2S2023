@@ -11,12 +11,28 @@ package Sintax.ExpressionMagnament.Expressions;
  */
 @lombok.Setter
 @lombok.Getter
+@lombok.NoArgsConstructor
 public class Expression {
-    
+
     private Instruction instruction;
-    private String type;
-    private String nombre;
+    private int type;
+    private String name;
+    private int identationCount;
     private int row;
     private int col;
-    
+
+    public Expression(Instruction instruction, int type, String nombre, int identationCount, int row, int col) {
+        this.instruction = instruction;
+        this.type = type;
+        this.name = nombre;
+        this.identationCount = identationCount;
+        this.row = row;
+        this.col = col;
+    }
+
+    @Override
+    public String toString() {
+        return "Expression{" + "instruction= " + instruction + " name= " + name + " row= " + row + ", col= " + col + "}\n";
+    }
+
 }

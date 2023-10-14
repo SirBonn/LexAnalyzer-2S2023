@@ -36,3 +36,4 @@ GUI/AnalyzerMainGUI$2.class
 Lexic/FilesMagnament/FileController.class
 GUI/InterfaceMagnament/TokenDropper.class
 Lexic/TokenMagnament/TokenController.class
+Sintax/ExpressionMagnament/ExpressionConstructor.class
