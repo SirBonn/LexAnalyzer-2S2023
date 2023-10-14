@@ -32,7 +32,7 @@ public class Expression {
 
     @Override
     public String toString() {
-        return "Expression{" + "instruction= " + instruction + " name= " + name + " row= " + row + ", col= " + col + "}\n";
+        return "Expression["+col+", "+row+"]{" + "instruction= " + instruction + "}\n";
     }
 
 }

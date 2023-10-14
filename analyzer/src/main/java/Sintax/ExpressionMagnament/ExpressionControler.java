@@ -76,8 +76,11 @@ public class ExpressionControler {
                 }
             } else if (token.getTokenType() == TokenTypes.ENDLINE_TKN.ordinal()) {
                 expression = ec.createExpression(stateController.getPreviousState(), stateController.getLastState(), instruction, tabIterator);
-                expressionBag.addExpresion(validateParent(expression));
-                System.out.println("se guarda la expresion" + expression);
+                if (expression != null) {
+
+                    expressionBag.addExpresion(validateParent(expression));
+                    System.out.println("se guarda la expresion" + expression);
+                }
 
                 this.instruction = new Instruction();
             } else {
@@ -114,8 +117,8 @@ public class ExpressionControler {
     public String showExpressions() {
         String report = "--- Expresiones reconocidas ---\n";
 
-        for (Expression expression : expressionBag.getExpressions()) {
-            report += expression.toString() + "\n";
+        for (Expression exp : expressionBag.getExpressions()) {
+            report += exp.toString() + "\n";
         }
 
         return report;

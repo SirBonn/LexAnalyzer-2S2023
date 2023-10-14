@@ -15,7 +15,6 @@ import java.util.Stack;
  */
 @lombok.Getter
 @lombok.Setter
-@lombok.NoArgsConstructor
 public class ExpressionBag {
 
     private ArrayList<Expression> expressions;

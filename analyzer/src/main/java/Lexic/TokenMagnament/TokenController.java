@@ -24,6 +24,7 @@ public class TokenController {
     private String lex = "";
     private Token token;
     private StateController stateController = new StateController();
+    private ExpressionControler expressionControler;
     private TokenBag tokenBag;
 
     public TokenController(TokenBag tokenBag) {
@@ -69,7 +70,7 @@ public class TokenController {
         System.out.println("\n\n\t--- Iniciamos analisis sintactico:\n");
         
         //inicio de alnalisis sintactico
-        new ExpressionControler(tokenBag);
+        expressionControler = new ExpressionControler(tokenBag);
         
     }
 

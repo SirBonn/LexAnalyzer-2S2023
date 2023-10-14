@@ -177,6 +177,7 @@ public class DefSintaxMatrix {
             sintaxMatrix[MatrixStates.S48.ordinal()][TokenTypes.DBLDOT_TKN.ordinal()] = MatrixStates.S48.ordinal();
 
             sintaxMatrix[MatrixStates.S49.ordinal()][TokenTypes.TABULATOR_TOKEN.ordinal()] = MatrixStates.S0.ordinal(); //S0 STATE REBOOT
+            sintaxMatrix[MatrixStates.SERROR.ordinal()][TokenTypes.ENDLINE_TKN.ordinal()] = MatrixStates.S0.ordinal(); //S0 STATE REBOOT
 
         }
 
